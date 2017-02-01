@@ -1,8 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends MY_Controller {
 
+	function __construct()
+	{
+		parent::__construct();
+
+		log_message('debug', 'Welcome Controller is have been loaded');
+	}
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,6 +26,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->helper('assets');
+
 		$this->load->view('welcome_message');
 	}
 }
