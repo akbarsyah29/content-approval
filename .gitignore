@@ -9,6 +9,7 @@ application/logs/*
 !application/logs/.htaccess
 application/config/database.php
 application/config/config.php
+assets/js/login-4.min.js
 
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
