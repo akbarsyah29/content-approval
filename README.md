@@ -6,7 +6,7 @@ It's project worked for internship on UbiG, used for back office mananging conte
 1. Fork the project from https://github.com/RezaPahleviBahruddin/content-approval
 2. Clone the project to your local environment by using these commands:
 
-    > git clone https://github.com/{YOUR_USERNAME}/Magic-Calendar
+    > git clone https://github.com/{YOUR_USERNAME}/content-approval
     
     > git remote add upstream https://github.com/RezaPahleviBahruddin/content-approval
     
