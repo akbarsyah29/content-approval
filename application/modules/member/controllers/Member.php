@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends MY_Controller {
+class Member extends MY_Controller {
 
 	function __construct()
 	{
@@ -24,10 +24,13 @@ class Welcome extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function input()
 	{
 		$this->load->helper('assets');
 
-		$this->load->view('welcome_message');
+		echo "Username: ".$this->input->post('username');
+		echo "Password: ".$this->input->post('password');
+		
+		// $this->load->view('welcome_message');
 	}
 }

@@ -1,30 +1,12 @@
 <!DOCTYPE html>
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
-Version: 4.7.1
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
 <html lang="en">
-    <!--<![endif]-->
     <!-- BEGIN HEAD -->
 
     <head>
         <meta charset="utf-8" />
-        <title>Metronic Admin Theme #4 | User Login 4</title>
+        <title>User Login | UbiG</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <meta content="Preview page of Metronic Admin Theme #4 for " name="description" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <?php echo css_asset('font-awesome.min.css') ?>
@@ -45,33 +27,34 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> 
+        <link rel="shortcut icon" href="<?php echo base_url() ?>/favicon.ico" /> 
     </head>
     <!-- END HEAD -->
 
     <body class=" login">
-    	<?php //echo image_asset('coba.jpg', '', 'jpg') ?>
         <!-- BEGIN LOGO -->
         <div class="logo">
-            <a href="index.html">
-                <img src="../assets/pages/img/logo-big.png" alt="" /> </a>
+        	<?php echo image_asset('favicon-32x32.png') ?>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
-            <form class="login-form" action="index.html" method="post">
+            <?php echo form_open('member/input', array('class' => 'login-form')) ?>    
+                <div style="display:none">
+	                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+	            </div>
                 <h3 class="form-title">Login to your account</h3>
                 <div class="alert alert-danger display-hide">
                     <button class="close" data-close="alert"></button>
-                    <span> Enter any username and password. </span>
+                    <span> Enter any username and password ! </span>
                 </div>
                 <div class="form-group">
                     <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                    <label class="control-label visible-ie8 visible-ie9">Username</label>
+                    <label class="control-label visible-ie8 visible-ie9">Email</label>
                     <div class="input-icon">
-                        <i class="fa fa-user"></i>
-                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
+                        <i class="fa fa-envelope"></i>
+                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" /> </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Password</label>
@@ -86,23 +69,6 @@ License: You must have a valid license purchased only from themeforest(the above
                     </label>
                     <button type="submit" class="btn green pull-right"> Login </button>
                 </div>
-                <div class="login-options">
-                    <h4>Or login with</h4>
-                    <ul class="social-icons">
-                        <li>
-                            <a class="facebook" data-original-title="facebook" href="javascript:;"> </a>
-                        </li>
-                        <li>
-                            <a class="twitter" data-original-title="Twitter" href="javascript:;"> </a>
-                        </li>
-                        <li>
-                            <a class="googleplus" data-original-title="Goole Plus" href="javascript:;"> </a>
-                        </li>
-                        <li>
-                            <a class="linkedin" data-original-title="Linkedin" href="javascript:;"> </a>
-                        </li>
-                    </ul>
-                </div>
                 <div class="forget-password">
                     <h4>Forgot your password ?</h4>
                     <p> no worries, click
@@ -113,7 +79,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <a href="javascript:;" id="register-btn"> Create an account </a>
                     </p>
                 </div>
-            </form>
+            <?php echo form_close() ?>
             <!-- END LOGIN FORM -->
             <!-- BEGIN FORGOT PASSWORD FORM -->
             <form class="forget-form" action="index.html" method="post">
@@ -131,33 +97,29 @@ License: You must have a valid license purchased only from themeforest(the above
             </form>
             <!-- END FORGOT PASSWORD FORM -->
             <!-- BEGIN REGISTRATION FORM -->
-            <form class="register-form" action="index.html" method="post">
+            <?php echo form_open('login/register', array('class' => 'register-form')) ?>
+	            <div style="display:none">
+	                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+	            </div>
                 <h3>Sign Up</h3>
                 <p> Enter your personal details below: </p>
                 <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Full Name</label>
+                    <label class="control-label visible-ie8 visible-ie9">First Name</label>
                     <div class="input-icon">
                         <i class="fa fa-font"></i>
-                        <input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="fullname" /> </div>
+                        <input class="form-control placeholder-no-fix" type="text" placeholder="First Name" name="first_name" /> </div>
                 </div>
                 <div class="form-group">
-                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                    <label class="control-label visible-ie8 visible-ie9">Email</label>
+                    <label class="control-label visible-ie8 visible-ie9">Last Name</label>
                     <div class="input-icon">
-                        <i class="fa fa-envelope"></i>
-                        <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email" /> </div>
+                        <i class="fa fa-font"></i>
+                        <input class="form-control placeholder-no-fix" type="text" placeholder="Last Name" name="last_name" /> </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Address</label>
                     <div class="input-icon">
                         <i class="fa fa-check"></i>
                         <input class="form-control placeholder-no-fix" type="text" placeholder="Address" name="address" /> </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">City/Town</label>
-                    <div class="input-icon">
-                        <i class="fa fa-location-arrow"></i>
-                        <input class="form-control placeholder-no-fix" type="text" placeholder="City/Town" name="city" /> </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Country</label>
@@ -399,32 +361,17 @@ License: You must have a valid license purchased only from themeforest(the above
                         <option value="ZW">Zimbabwe</option>
                     </select>
                 </div>
-                <p> Enter your account details below: </p>
                 <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Username</label>
+                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <label class="control-label visible-ie8 visible-ie9">Email</label>
                     <div class="input-icon">
-                        <i class="fa fa-user"></i>
-                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Password</label>
-                    <div class="input-icon">
-                        <i class="fa fa-lock"></i>
-                        <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password" /> </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
-                    <div class="controls">
-                        <div class="input-icon">
-                            <i class="fa fa-check"></i>
-                            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword" /> </div>
-                    </div>
+                        <i class="fa fa-envelope"></i>
+                        <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email" /> </div>
                 </div>
                 <div class="form-group">
                     <label class="mt-checkbox mt-checkbox-outline">
                         <input type="checkbox" name="tnc" /> I agree to the
-                        <a href="javascript:;">Terms of Service </a> &
-                        <a href="javascript:;">Privacy Policy </a>
+                        Terms of Service  & Privacy Policy
                         <span></span>
                     </label>
                     <div id="register_tnc_error"> </div>
@@ -433,18 +380,10 @@ License: You must have a valid license purchased only from themeforest(the above
                     <button id="register-back-btn" type="button" class="btn red btn-outline"> Back </button>
                     <button type="submit" id="register-submit-btn" class="btn green pull-right"> Sign Up </button>
                 </div>
-            </form>
+            <?php echo form_close() ?>
             <!-- END REGISTRATION FORM -->
         </div>
         <!-- END LOGIN -->
-        <!-- BEGIN COPYRIGHT -->
-        <div class="copyright"> 2014 &copy; Metronic - Admin Dashboard Template. </div>
-        <!-- END COPYRIGHT -->
-        <!--[if lt IE 9]>
-<script src="../assets/global/plugins/respond.min.js"></script>
-<script src="../assets/global/plugins/excanvas.min.js"></script> 
-<script src="../assets/global/plugins/ie8.fix.min.js"></script> 
-<![endif]-->
         <!-- BEGIN CORE PLUGINS -->
         <?php echo js_asset('jquery.min.js') ?>
         <?php echo js_asset('bootstrap.min.js') ?>
